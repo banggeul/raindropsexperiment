@@ -27,17 +27,6 @@ a:visited {
   border-bottom: 1px solid white;
 }
 
-.favorite {
-  cursor: pointer;
-}
-
-.heart {
-  height:12px;
-}
-
-header .flex a {
-  color: black;
-}
 
 .gray {
   margin-top: 0.25em;
@@ -67,7 +56,9 @@ button {
 
 input {
   width: 100%;
-  max-width: 500px;
+  height: 1.5em;
+  line-height: 1.5;
+  /* max-width: 500px; */
   font-family: monospace;
   font-size: 1.2rem;
   display: inline-block;
@@ -90,48 +81,18 @@ input {
 }
 
 
-.header {
-  background-color: #444;
-  white-space: nowrap;
-  padding: 0.5rem;
-  color: black;
-  justify-content:flex-end;
-  align-items: center;
-  display: flex;
-}
-
-.header-title {
-  font-weight: 700;
-  margin-left: 0.25rem;
-  margin-right: 5px;
-  color: black;
-  text-decoration: none;
-  font-size: 1.1rem;
-}
-
-.header-logo {
-  height: 18px;
-  margin-bottom: -1.5px;
-}
-.header-link {
-  margin-left: 0.2rem;
-  color: white !important;
-  text-decoration: none;
-}
-
-.header-button {
-  margin-left: 0.25rem;
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-.app-container {
+#app-container {
   width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  background: black;
+  height: 100vh;
+  /* margin-right: auto;
+  margin-left: auto; */
+  /* background: black; */
+}
+
+.container {
+  max-width: 500px;
+  margin:auto;
+  padding: 2em;
 }
 
 #content {
@@ -143,13 +104,12 @@ input {
   /* padding: 0.5rem 1.2rem; */
 }
 
-.content{
-  margin-left: 1em;
+
+#user-context {
+
 }
 
-.error {
-  color: red;
-}
+
 
 .gameView {
   width: 100%;
@@ -175,11 +135,11 @@ input {
 
 
 .rainDrop {
-  width:60px;
-  height:60px;
+  width:40px;
+  height:40px;
   position:absolute;
-  margin-left:-30px;
-  margin-top:-30px;
+  margin-left:-20px;
+  margin-top:-20px;
   border-radius: 50%;
   /* -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
@@ -277,4 +237,95 @@ a.disabled {
   min-width:100%;
   min-height:100%;
   pointer-events: none;
+}
+
+/*forms*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+label {
+  /* text-align:right; */
+  /* width: 50%; */
+  color: #666;
+  font-size: .8em;
+  line-height: 2;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+
+  margin-bottom: 1em;
+}
+
+.timeLimitSwitch {
+  flex-direction: row;
+  align-items: center;
+}
+
+#timeLimitRow {
+  display: none;
+}
+
+.switchWrapper {
+  padding: 0;
+  margin-left: .5em;
 }
