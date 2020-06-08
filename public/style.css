@@ -92,7 +92,13 @@ input {
 .container {
   max-width: 500px;
   margin:auto;
-  padding: 2em;
+  padding: 2em 3em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  background: #fff;
 }
 
 #content {
@@ -126,13 +132,23 @@ input {
   text-align: center;
   width: 60%;
   margin: auto;
-  top: 35%;
+  top: 80%;
+  transform: translate(0, -50%);
   left: 0;
   right: 0;
   z-index: 2;
+  font-size: 1.5em;
+  /* background: #333; */
+
+  /* color: black; */
   /* pointer-events: none; */
 }
 
+.game-ui p {
+  font-size: 2em;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(0,0,0,1);
+}
 
 .rainDrop {
   width:40px;
@@ -141,14 +157,15 @@ input {
   margin-left:-20px;
   margin-top:-20px;
   border-radius: 50%;
-  /* -webkit-filter: blur(2px);
+  -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
   -o-filter: blur(2px);
   -ms-filter: blur(2px);
-  filter: blur(2px); */
-  background: rgba(255,255,255,.7);
+  filter: blur(2px);
+  -webkit-transform: translate3d(0,0,0);
+  background: rgba(0,0,0,.5);
   position: absolute;
-  mix-blend-mode: screen;
+  /* mix-blend-mode: multiply; */
   z-index: 3;
 }
 
@@ -167,9 +184,15 @@ a.cta {
   margin-left: 0;
   color: white;
   background: #ff6600;
-  border-radius: 2px;
+  border-radius: 4px;
   transition: all .3s;
 }
+
+/* a.inversed {
+  color:#ff6600;
+  background: white;
+  box-shadow: 0 0 20px rgba(0,0,0,.7);
+} */
 
 a.disabled {
   background-color: #ccc;

@@ -9,10 +9,17 @@ let dots = [];
 
 //get the reference to the HTML elements we need
 const $getUserContext = document.querySelector('#collectUserContext');
-const $welcomeScreen = document.querySelector('#user-context')
+const $welcomeScreen = document.querySelector('.container');
 const $setTimeLimit = document.querySelector('#timeLimitSwitch');
 const $timeLimit = document.querySelector('#timeLimitRow');
 const $game = document.querySelector('#content');
+
+//get the reference to the video
+var video = document.querySelector("video");
+//if video exists, pause it for now
+if (video) {
+  video.pause();
+}
 
 //watch for the click event for the toggle button for the time limit switch
 $setTimeLimit.addEventListener('click', function(){
@@ -59,16 +66,10 @@ function setUpGame() {
   // console.log("set up the game here");
   $game.innerHTML = `<div>
       <div id="gameView" class="gameView">
-        <div class="video-container">
-          <video playsinline autoplay muted >
-            <source src="trees1.mp4" type="video/mp4" poster="trees.png">
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
+        <!--video container used to be here-->
         <div id="game-ui" class="game-ui">
-          <h1 class="title"> Rain Drops </h1>
-          <p class="instruction"> Click to create rain drops.</p>
-          <a class="cta" href="#" id="startBtn"> Start </a>
+          <!--<p class="instruction"> Click to create rain drops.</p>-->
+          <a class="cta" href="#" id="startBtn"> Start the Game </a>
         </div>
         <div class="thanks">
           <h1> Thanks for your participation! </h1>
@@ -106,12 +107,7 @@ function setUpGame() {
   //now check if the time limit has been set if so, set the time limit;
   const timeLimit = parseInt(experiment.timeLimit);
 
-  //get the reference to the video
-  var video = document.querySelector("video");
-  //if video exists, pause it for now
-  if (video) {
-    video.pause();
-  }
+
   // $appHeader.style.display = "none";
 
   //hide the thank you screen
@@ -119,7 +115,7 @@ function setUpGame() {
   $thanks.style.opacity = 0;
 
   //make sure the game view is 100% of the screen height
-  $gameView.style.height = window.innerHeight + "px";
+  // $gameView.style.height = window.innerHeight + "px";
 
   //if startbutton is clicked
   $startBtn.addEventListener('click', function(e) {
@@ -134,7 +130,7 @@ function setUpGame() {
     fadeOut($gameUI, true);
     $gameUI.style.pointerEvents = "none";
 
-    //turn the game on with 2 seconds delay
+    //turn the game on with n seconds delay
     setTimeout(function() {
         isGameOn = true;
         if (!timeID && timeLimit > 0) {
@@ -145,7 +141,7 @@ function setUpGame() {
             finishGame();
           }, timeLimit*1000);
         }
-    }, 2000);
+    }, 4000);
 
   })
   //gameview clicks
@@ -303,7 +299,7 @@ function hideElem(elem) {
 function timeout(ms) {
   return new Promise(res => setTimeout(res, ms));
 }
-//dots play back function 
+//dots play back function
 //not used right now but left here just in case
 async function replay(data, $gameView) {
   $gameView.style.pointerEvents = "none";
