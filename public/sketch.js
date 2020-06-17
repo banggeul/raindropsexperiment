@@ -65,7 +65,7 @@ function getUserContext() {
 
 function setUpGame() {
   // console.log("set up the game here");
-  $game.innerHTML = `<div>
+  $game.innerHTML = `<div onclick="void(0);">
       <div id="gameView" class="gameView">
         <!--video container used to be here-->
         <div id="game-ui" class="game-ui">
@@ -83,11 +83,11 @@ function setUpGame() {
       </div>
     </div>`;
 
-  var clickEvent = new MouseEvent("click", {
-    "view": window,
-    "bubbles": true,
-    "cancelable": false
-  });
+  // var clickEvent = new MouseEvent("click", {
+  //   "view": window,
+  //   "bubbles": true,
+  //   "cancelable": false
+  // });
 
 
 
@@ -148,10 +148,10 @@ function setUpGame() {
 
   })
 
-  $gameView.addEventListener('touchstart', () => {});
-  $gameView.addEventListener('touchend', () => {});
-  $gameView.addEventListener('touchcancel', () => {});
-  $gameView.addEventListener('touchmove', () => {});
+  // $gameView.addEventListener('touchstart', () => {});
+  // $gameView.addEventListener('touchend', () => {});
+  // $gameView.addEventListener('touchcancel', () => {});
+  // $gameView.addEventListener('touchmove', () => {});
   //gameview clicks
   $gameView.addEventListener('click', function(e) {
     //see if the click limit is left, if not, finish game
