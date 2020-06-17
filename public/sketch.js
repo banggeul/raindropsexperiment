@@ -89,6 +89,8 @@ function setUpGame() {
     "cancelable": false
   });
 
+
+
   let timeID;
   let isGameOn = false;
 
@@ -145,6 +147,11 @@ function setUpGame() {
     }, 4000);
 
   })
+
+  $gameView.addEventListener('touchstart', () => {});
+  $gameView.addEventListener('touchend', () => {});
+  $gameView.addEventListener('touchcancel', () => {});
+  $gameView.addEventListener('touchmove', () => {});
   //gameview clicks
   $gameView.addEventListener('click', function(e) {
     //see if the click limit is left, if not, finish game
