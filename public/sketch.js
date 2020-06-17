@@ -18,6 +18,7 @@ const $game = document.querySelector('#content');
 var video = document.querySelector("video");
 //if video exists, pause it for now
 if (video) {
+  video.play();
   video.pause();
 }
 
@@ -227,6 +228,9 @@ function setUpGame() {
     console.log("data logged");
     //fade in the thank you with half second delay
     fadeIn($thanks,.5);
+    setTimeout(function(){
+        window.location.reload(1);
+    }, 3000);
     // gsap.from('.sun', {y:200, duration:2.5, ease:"elastic.out(1, 0.3)", delay:1})
     // gsap.to('.sun',{filter:"blur(0px)", scale:1.2, repeat:-1, yoyo:true, duration:1});
     // gsap.from($gameUI, {opacity:0, duration:1});
