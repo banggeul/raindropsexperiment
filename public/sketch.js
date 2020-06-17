@@ -52,11 +52,9 @@ function getUserContext() {
   experiment.clickLimit = clickLimit;
   experiment.timeLimit = timeLimit;
   experiment.timestamp = timestamp;
-  experiment.window = {
+  experiment.windowSize = {
     width:window.innerWidth,
     height:window.innerHeight,
-    oW: window.outerWidth,
-    oH: window.outerHeight
   };
 
   //make sure the game view is all hidden
