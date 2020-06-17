@@ -29,11 +29,11 @@
         <div id="user-context">
           <div class="formRow">
             <label for="sessionID">Enter Session ID</label>
-            <input type="text" name="name" id="name" value="12345">
+            <input onClick="this.setSelectionRange(0, this.value.length);" type="text" name="name" id="name" value="12345">
           </div>
           <div class="formRow">
             <label for="clickLimit">Set the click limit</label>
-            <input type="number" id="clickLimit" name="" min="10" max="100" value="20">
+            <input onClick="this.setSelectionRange(0, this.value.length);" type="number" id="clickLimit" name="" min="10" max="100" value="20">
           </div>
           <div class="formRow timeLimitSwitch">
             <label for="timeLimitOn">Turn on the time limit</label>
@@ -46,7 +46,7 @@
           </div>
           <div class="formRow" id="timeLimitRow">
             <label for="timeLimit">Set the time limit (in seconds)</label>
-            <input type="number" id="timeLimit" name="" min="20" max="100" value = "20">
+            <input onClick="this.setSelectionRange(0, this.value.length);" type="number" id="timeLimit" name="" min="20" max="100" value = "20">
           </div>
             <a class="cta" href="#" id="collectUserContext">Submit</a>
         </div>
