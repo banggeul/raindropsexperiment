@@ -57,6 +57,7 @@ function getUserContext() {
     height:window.innerHeight,
   };
 
+
   //make sure the game view is all hidden
   $game.style.display = "none";
   $game.style.opacity = 0;
@@ -101,6 +102,8 @@ function setUpGame() {
   //get the reference to the game view HTML elements
   const $startBtn = document.querySelector('#startBtn');
   const $gameView = document.querySelector('#gameView');
+
+  // experiment.clickArea = {width:clickArea, height:clickArea};
   //these two are hidden but left here for added functionality for future
   const $submitButton = document.querySelector('#submit');
   const $playButton = document.querySelector('#playback');
@@ -136,6 +139,10 @@ function setUpGame() {
     //fade out the game ui
     fadeOut($gameUI, true);
     $gameUI.style.pointerEvents = "none";
+
+    //get the clickable area and store it to the variable
+    const clickArea = $gameView.getBoundingClientRect();
+    experiment.clickArea = {width:clickArea.width, height:clickArea.height};
 
     //turn the game on with n seconds delay
     setTimeout(function() {

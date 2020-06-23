@@ -122,13 +122,16 @@ input {
 
 
 .gameView {
-  width: 100%;
-  height: 100vh;
-  background: #9cc99c;
-  background: rgb(100,220,222);
-  background: linear-gradient(0deg, rgba(100,220,222,1) 0%, rgba(156,201,156,1) 100%);
-  position: relative;
+  width: 92.5vh;
+  height: 92.5vh;
+  border: 3px red solid;
+  background: rgba(0,0,0,0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   overflow: hidden;
+  z-index: 10;
 }
 
 .game-ui {
