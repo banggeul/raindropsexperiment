@@ -164,11 +164,11 @@ input {
   margin-left:-20px;
   margin-top:-20px;
   border-radius: 50%;
-  -webkit-filter: blur(2px);
+  /* -webkit-filter: blur(2px);
   -moz-filter: blur(2px);
   -o-filter: blur(2px);
   -ms-filter: blur(2px);
-  filter: blur(2px);
+  filter: blur(2px); */
   -webkit-transform: translate3d(0,0,0);
   background: rgba(0,0,0,.5);
   position: absolute;
