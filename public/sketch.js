@@ -72,6 +72,7 @@ function setUpGame() {
   // console.log("set up the game here");
   $game.innerHTML = `<div onclick="void(0);">
       <div id="gameView" class="gameView">
+        <div id="clickArea" class="clickArea"></div>
         <!--video container used to be here-->
         <div id="game-ui" class="game-ui">
           <!--<p class="instruction"> Click to create rain drops.</p>-->
@@ -102,6 +103,7 @@ function setUpGame() {
   //get the reference to the game view HTML elements
   const $startBtn = document.querySelector('#startBtn');
   const $gameView = document.querySelector('#gameView');
+  const $clickArea = document.querySelector('#clickArea');
 
   // experiment.clickArea = {width:clickArea, height:clickArea};
   //these two are hidden but left here for added functionality for future
@@ -141,8 +143,8 @@ function setUpGame() {
     $gameUI.style.pointerEvents = "none";
 
     //get the clickable area and store it to the variable
-    const clickArea = $gameView.getBoundingClientRect();
-    experiment.clickArea = {width:clickArea.width, height:clickArea.height};
+
+    // experiment.clickArea = {width:clickArea.width, height:clickArea.height};
 
     //turn the game on with n seconds delay
     setTimeout(function() {
@@ -167,21 +169,31 @@ function setUpGame() {
   $gameView.addEventListener('click', function(e) {
     //see if the click limit is left, if not, finish game
     if(clickLimit > 0){
-      clickLimit--;
+      const clickAreaRect = $clickArea.getBoundingClientRect();
+      let inOrOut = isInside(e.offsetX, e.offsetY,clickAreaRect);
       if (isGameOn) {
+        console.log(inOrOut);
+        if(inOrOut){
+          clickLimit--;
+        }
         let currentTime = new Date().getTime();
         //create a new data of the current dot
         const data = {
           position: {
             x: e.offsetX,
-            y: e.offsetY
+            y: e.offsetY,
+            rX: inOrOut ? mapRange(e.offsetX, clickAreaRect.left, clickAreaRect.right, 0, 1) : -1,
+            rY: inOrOut ? mapRange(e.offsetY, clickAreaRect.top, clickAreaRect.bottom, 0, 1) : -1,
+            inside: inOrOut
           },
           time: currentTime
         }
         //add the data of the current dot to the existing dots
         dots = [...dots, data];
         //draw the dot on the screen
-        createDot(data.position, this);
+        if(inOrOut){
+          createDot(data.position, this);
+        }
 
         //this has no function right now because the submit button is hidden
         //but left here just in case we bring back the button
@@ -317,6 +329,17 @@ function hideElem(elem) {
   elem.style.display = "none";
 }
 
+function isInside(x,y,rect){
+  if(x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom){
+    return true;
+  }
+
+  return false;
+}
+
+function mapRange(num, in_min, in_max, out_min, out_max) {
+  return (num - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
 
 function timeout(ms) {
   return new Promise(res => setTimeout(res, ms));

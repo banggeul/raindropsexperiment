@@ -122,6 +122,14 @@ input {
 
 
 .gameView {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0);
+  position: relative;
+  overflow: hidden;
+}
+
+.clickArea {
   width: 92.5vh;
   height: 92.5vh;
   border: 3px red solid;
@@ -131,6 +139,7 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
+  pointer-events: none;
   z-index: 10;
 }
 
