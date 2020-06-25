@@ -145,6 +145,10 @@ function setUpGame() {
     //get the clickable area and store it to the variable
 
     // experiment.clickArea = {width:clickArea.width, height:clickArea.height};
+    experiment.windowSize = {
+      width:$game.getBoundingClientRect().width,
+      height:$game.getBoundingClientRect().height
+    };
 
     //turn the game on with n seconds delay
     setTimeout(function() {
