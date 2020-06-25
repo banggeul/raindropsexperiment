@@ -143,11 +143,17 @@ function setUpGame() {
     $gameUI.style.pointerEvents = "none";
 
     //get the clickable area and store it to the variable
-
+    const clickBound = $clickArea.getBoundingClientRect();
     // experiment.clickArea = {width:clickArea.width, height:clickArea.height};
     experiment.windowSize = {
       width:$game.getBoundingClientRect().width,
-      height:$game.getBoundingClientRect().height
+      height:$game.getBoundingClientRect().height,
+      clickBound: {
+        top: clickBound.top,
+        left: clickBound.left,
+        right:clickBound.right,
+        bottom:clickBound.bottom
+      }
     };
 
     //turn the game on with n seconds delay
