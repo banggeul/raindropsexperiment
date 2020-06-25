@@ -22,6 +22,10 @@ if (video) {
   video.pause();
 }
 
+document.body.addEventListener('touchstart',()=>{
+  document.activeElement.blur();
+});
+
 //watch for the click event for the toggle button for the time limit switch
 $setTimeLimit.addEventListener('click', function(){
   //if the time limit is on
@@ -148,7 +152,7 @@ function setUpGame() {
     experiment.windowSize = {
       width:$game.getBoundingClientRect().width,
       height:$game.getBoundingClientRect().height,
-      clickBound: {
+      clickBounds: {
         top: clickBound.top,
         left: clickBound.left,
         right:clickBound.right,
