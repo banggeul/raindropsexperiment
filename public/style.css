@@ -136,7 +136,7 @@ input {
 .clickArea {
   width: 92.5vh;
   height: 92.5vh;
-  border: 3px red solid;
+  /* border: 3px red solid; */
   background: rgba(0,0,0,0);
   position: absolute;
   top: 50%;

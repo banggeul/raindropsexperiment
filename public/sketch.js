@@ -186,10 +186,10 @@ function setUpGame() {
       const clickAreaRect = $clickArea.getBoundingClientRect();
       let inOrOut = isInside(e.offsetX, e.offsetY,clickAreaRect);
       if (isGameOn) {
-        console.log(inOrOut);
-        if(inOrOut){
-          clickLimit--;
-        }
+        // console.log(inOrOut);
+        // if(inOrOut){
+        clickLimit--;
+        // }
         let currentTime = new Date().getTime();
         //create a new data of the current dot
         const data = {
