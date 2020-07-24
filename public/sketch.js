@@ -49,6 +49,10 @@ function getUserContext() {
   const clickLimit = document.querySelector('#clickLimit').value;
   const timeLimitOn = document.querySelector('#timeLimitSwitch').checked;
   const timeLimit = timeLimitOn ? document.querySelector('#timeLimit').value : -1;
+  const ageYear = document.querySelector('#ageYear').value;
+  const ageMonth = document.querySelector('#ageMonth').value;
+  const gender = document.querySelector('#genderOptions').options[document.getElementById("genderOptions").selectedIndex].value;
+
   //get the current date and time
   const timestamp = Date.now();
   //store it in the variable experiment
@@ -60,6 +64,8 @@ function getUserContext() {
     width:window.innerWidth,
     height:window.innerHeight,
   };
+  experiment.age = { year: ageYear, month: ageMonth};
+  experiment.gender = gender;
 
 
   //make sure the game view is all hidden

@@ -87,6 +87,14 @@ input {
   border-image:initial;
 }
 
+.ageInputRow {
+  display: flex;
+}
+
+.ageInputCol {
+  flex: 1 1 40%;
+}
+
 
 #app-container {
   width: 100%;
